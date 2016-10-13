@@ -81,7 +81,7 @@ var EditableTable = function () {
                         '<a class="edit" href="">Edit</a>', '<a class="cancel" data-mode="new" href="">Cancel</a>'
                 ]);
                 var nRow = oTable.fnGetNodes(aiNew[0]);
-                editRow(oTable, nRow);
+               editRow(oTable, nRow);
                 nEditing = nRow;
             });
 

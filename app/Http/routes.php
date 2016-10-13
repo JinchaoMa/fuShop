@@ -21,16 +21,16 @@ Route::get('/', function () {
 /**
  * 网站后台
  *
- * @return 
+ * @return
  */
 Route::group(['prefix' => 'admin'], function(){
 
 	// 后台主页
-	Route::get('/', 'admin\adminController@index'); 
-	
+	Route::get('/', 'admin\adminController@index');
+
 	/**
 	 * 用户管理
-	 * 
+	 *
 	 * @author [name] <[email address]>
 	 */
 	Route::group(['prefix' => 'customer'],function(){
@@ -48,7 +48,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 	/**
 	 * 商品管理
-	 * 
+	 *
 	 * @author [name] <[email address]>
 	 */
 	Route::group(['prefix' => 'goods'],function(){
@@ -66,7 +66,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 	/**
 	 * 订单管理
-	 * 
+	 *
 	 * @author [name] <[email address]>
 	 */
 	Route::group(['prefix' => 'order'],function(){
@@ -84,7 +84,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 	/**
 	 * 商城管理
-	 * 
+	 *
 	 * @author [name] <[email address]>
 	 */
 	Route::group(['prefix' => 'shop'],function(){
@@ -102,7 +102,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 	/**
 	 * 系统统计
-	 * 
+	 *
 	 * @author [name] <[email address]>
 	 */
 	// Route::group(['prefix' => 'data'],function(){
@@ -116,7 +116,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 	/**
 	 * 员工管理
-	 * 
+	 *
 	 * @author [name] <[email address]>
 	 */
 	Route::group(['prefix' => 'staff'],function(){
@@ -134,7 +134,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 	/**
 	 * 网站管理
-	 * 
+	 *
 	 * @author [name] <[email address]>
 	 */
 	Route::group(['prefix' => 'web'],function(){
@@ -147,6 +147,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 		// 友情链接
 		Route::get('links', 'admin\web\linksController@index');
+		Route::get('links_add', 'admin\web\linksController@add');
 
 	});
 

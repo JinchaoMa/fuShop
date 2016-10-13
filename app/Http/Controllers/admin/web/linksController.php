@@ -20,6 +20,17 @@ class linksController extends Controller
         return view('admin/web/links');
     }
 
+     /**
+     * 添加友情链接
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function add()
+    {
+        //
+        return view('admin/web/links_add');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
