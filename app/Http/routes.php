@@ -49,7 +49,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 	/**
 	 * 商品管理
-	 * 
+	 *
 	 * @author 吴睿楠 <Ryansimver@gmail.com>
 	 */
 	Route::group(['prefix' => 'goods'],function(){
@@ -156,6 +156,7 @@ Route::group(['prefix' => 'admin'], function(){
 		// 友情链接
 		Route::get('links', 'admin\web\linksController@index');
 		Route::get('links_add', 'admin\web\linksController@add');
+		Route::get('links/{bid}', 'admin\web\linksController@destroy');
 
 	});
 
@@ -165,7 +166,7 @@ Route::group(['prefix' => 'admin'], function(){
 /**
  * 图片上传及处理
  *
- * @return 
+ * @return
  */
 Route::group(['prefix' => 'updateFile'], function(){
 

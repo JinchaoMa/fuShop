@@ -78,8 +78,7 @@
                                         <td>{{ $value->cScore }}</td>
                                          <td><a href="order/{{ ($value->id) }}" class="label label-success radius">订单详情</a></td>
 
-                                            <td ><a href="javascript:;" class="label label-success radius" onclick='doStart()' id='btn'>已开启</a></td>
-
+                                            <td ><a href="{{ ($value->id) }}" class="label label-success radius" onclick='doStart()' id='btn'>已开启</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

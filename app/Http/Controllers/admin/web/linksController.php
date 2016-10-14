@@ -16,8 +16,9 @@ class linksController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin/web/links');
+         $data = \DB::table("fu_links")->get();
+         // dd($data);
+        return view('admin/web/links',compact('data'));
     }
 
      /**
@@ -92,8 +93,8 @@ class linksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($bid)
     {
-        //
+        dd($bid);
     }
 }
