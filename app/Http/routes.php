@@ -31,15 +31,16 @@ Route::group(['prefix' => 'admin'], function(){
 	/**
 	 * 用户管理
 	 *
-	 * @author [name] <[email address]>
+	 * @author 马金超 <15200154449@163.com>
 	 */
 	Route::group(['prefix' => 'customer'],function(){
 
 		// 基本信息
 		Route::get('base', 'admin\customer\baseController@index');
 
+
 		// 订单详情
-		Route::get('order', 'admin\customer\orderController@index');
+		Route::get('order/{id}', 'admin\customer\orderController@index');
 
 		// 评价详情
 		Route::get('evaluation', 'admin\customer\evaluationController@index');
@@ -135,7 +136,7 @@ Route::group(['prefix' => 'admin'], function(){
 	/**
 	 * 网站管理
 	 *
-	 * @author [name] <[email address]>
+	 * @author 马金超 <15200154449@163.com>
 	 */
 	Route::group(['prefix' => 'web'],function(){
 

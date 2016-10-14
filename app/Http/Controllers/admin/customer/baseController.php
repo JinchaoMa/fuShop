@@ -17,7 +17,10 @@ class baseController extends Controller
     public function index()
     {
         //
-        return view('admin/customer/base');
+        $data = \DB::table("fu_customer")->join("fu_customerbase",'fu_customer.id','=','fu_customerbase.cid')->get();
+
+        return view('admin/customer/base',compact('data'));
+        // dd($data);
     }
 
     /**
@@ -73,6 +76,7 @@ class baseController extends Controller
     public function update(Request $request, $id)
     {
         //
+
     }
 
     /**

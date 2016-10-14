@@ -63,27 +63,25 @@
                                     <th>帐号</th>
                                     <th>用户名</th>
                                     <th>积分</th>
+                                    <th>订单</th>
                                     <th>状态</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($data as $key => $value)
                                     <tr class="">
-                                        <td>1</td>
+                                        <td>{{ $key+1 }}</td>
                                          <td><img src="{{ asset('admins/images/photos/user1.png') }}" alt="" style="height: 35px;"></td>
-                                         <td>125465648</td>
-                                        <td>马小云</td>
-                                        <td>3455</td>
-                                        <td class="center">
-                                            <div class="wrap5" a="off">
-                                                <span>开启</span>
-                                                <span>关闭</span>
-                                                <div style="left: 2px;"></div>
-                                            </div>
-                                        </td>
+                                         <td>{{ $value->cAccount }}</td>
+                                        <td>{{ $value->cName }}</td>
+                                        <td>{{ $value->cScore }}</td>
+                                         <td><a href="order/{{ ($value->id) }}" class="label label-success radius">订单详情</a></td>
 
+                                            <td ><a href="javascript:;" class="label label-success radius" onclick='doStart()' id='btn'>已开启</a></td>
 
                                     </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -104,7 +102,6 @@
 
 
 
-
 	<!--script for editable table-->
 	<script src="{{ asset('admins/js/editable-table.js') }}"></script>
 
@@ -113,24 +110,43 @@
 	    jQuery(document).ready(function() {
 	        EditableTable.init();
 	    });
+
+        // 按钮
+        function doStart()
+        {
+            //判断按钮是开始还是结束
+            if(btn.innerHTML == '已开启'){
+                //让按钮的值变成停止
+                btn.innerHTML = '已禁用';
+            }else{
+                btn.innerHTML = '已开启';
+            }
+        }
+
+        /*用户-停用*/
+// function doStart(obj,id){
+//     layer.confirm('确认要停用吗？',function(index){
+//         $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>');
+//         $(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
+//         $(obj).remove();
+//         layer.msg('已停用!',{icon: 5,time:1000});
+//     });
+// }
+
+// 用户-启用
+// function doStop(obj,id){
+//     layer.confirm('确认要启用吗？',function(index){
+//         $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
+//         $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
+//         $(obj).remove();
+//         layer.msg('已启用!',{icon: 6,time:1000});
+//     });
+// }
 	</script>
 
     <!-- 按钮 -->
 
-    <script>
-            $(".wrap5").mousedown(function(event) {
-            if ($(".wrap5").attr("a") == "off") {
-                $(".wrap5 div").stop().animate({
-                    "left" : "49px"
-                },400),
-                $(".wrap5").attr("a","on")
-            }else {
-                $(".wrap5 div").stop().animate({
-                    "left" : "1px"
-                },400),
-                $(".wrap5").attr("a","off")
-            }
-        });
-    </script>
+
+
 
 @endSection

@@ -14,10 +14,27 @@ class orderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
-        return view('admin/customer/order');
+        $cid=$id;
+        // dd($cid);
+        $data = \DB::table("fu_goodsorder")->where("cid",$cid)->get();
+        $data1 = \DB::table("fu_goodsorderprice")->where("oid",$data[0]->id)->get();
+        $data2 = \DB::table("fu_goodstype")->where("gNo",$data1[0]->gNo)->get();
+        $data3 = \DB::table("fu_goods")->where("id",$data2[0]->gId)->get();
+        $data4 = \DB::table("fu_customerservice")->where("oid",$data[0]->id)->get();
+        // dd($data4[0]->csStatus);
+
+        // dd($data[0]->goStatus);//订单状态
+        // dd($data1[0]->goPublshedPrice);//商品成交价
+        // dd($data1[0]->goPrice);//商品商城价
+        //  dd($data1[0]->goQuantity);//商品数量
+        //  dd($data3[0]->gName);//商品名
+        $order = [
+            [$data[0]->goStatus,$data1[0]->goPublshedPrice,$data1[0]->goPrice,$data1[0]->goQuantity,$data3[0]->gName,$data4[0]->csStatus]
+        ];
+        // dd($order);
+        return view('admin/customer/order',compact('order'));
     }
 
     /**
