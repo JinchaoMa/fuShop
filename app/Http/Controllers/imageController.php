@@ -1,36 +1,32 @@
 <?php
 
-namespace App\Http\Controllers\admin\goods;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class brandController extends Controller
+class imageController extends Controller
 {
     /**
-     * 品牌列表
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         //
-        $data = \DB::table('fu_brand')->get();
-        return view('admin/goods/brand',compact('data'));
-        
     }
 
     /**
-     * 增加一条品牌
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
         //
-        
     }
 
     /**
@@ -42,14 +38,6 @@ class brandController extends Controller
     public function store(Request $request)
     {
         //
-        // if(!$request->hasFile('file')){
-        //     exit('上传文件为空');
-        // }
-        // $file = $request->file('brandIcon');
-        // var_dump($file);
-        dd($request);
-        //$data = \DB::table('fu_brand')->ceewte;
-        //dd('success');
     }
 
     /**
@@ -84,6 +72,7 @@ class brandController extends Controller
     public function update(Request $request, $id)
     {
         //
+        dd('successed');
     }
 
     /**
@@ -92,10 +81,8 @@ class brandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($bid)
+    public function destroy($id)
     {
         //
-        \DB::table('fu_brand')->where('id','=',$bid)->delete();
-        //dd('xx');
     }
 }
