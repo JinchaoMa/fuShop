@@ -60,7 +60,8 @@ Route::group(['prefix' => 'admin'], function(){
 		Route::get('brand/add', function(){
 			return view('admin/goods/brand_add');
 		});
-		//Route::post('brand/store', 'admin\goods\brandController@store');
+			//增加品牌
+		Route::post('brand/store', 'admin\goods\brandController@store');
 			//删除品牌
 		Route::get('brand/{bid}', 'admin\goods\brandController@destroy');
 
@@ -171,7 +172,7 @@ Route::group(['prefix' => 'admin'], function(){
 Route::group(['prefix' => 'updateFile'], function(){
 
 	//图片上传
-	Route::post('update', 'imageController@update');
+	Route::post('update', 'imageController@store');
 
 	//图片处理
 	Route::post('deal','imageController@deal');

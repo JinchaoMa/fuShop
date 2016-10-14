@@ -47,7 +47,7 @@ class brandController extends Controller
         // }
         // $file = $request->file('brandIcon');
         // var_dump($file);
-        dd($request);
+        //dd($request);
         //$data = \DB::table('fu_brand')->ceewte;
         //dd('success');
     }
