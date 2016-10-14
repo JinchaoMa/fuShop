@@ -100,6 +100,8 @@ var EditableTable = function () {
                     type:"get",
                     dataType:"json",
                     success:function (data){
+                        alert(data);
+
                         if(data.length!=0){
                             var nRow = $(this).parents('tr')[0];
                             oTable.fnDeleteRow(nRow);
@@ -138,22 +140,22 @@ var EditableTable = function () {
                     nEditing = null;
                     alert("Updated! Do not forget to do some ajax to sync with backend :)");
 
-                    // 获取bid
-                    var bid = $(this).attr("bid");
-                    //执行ajax
-                    $.ajax({
-                        url:'brand'+ '/' + bid,
-                        type:"get",
-                        dataType:"json",
-                        success:function (data){
-                            if(data.length!=0){
-                                var nRow = $(this).parents('tr')[0];
-                                oTable.fnDeleteRow(nRow);
-                            }else{
-                                alert('删除失败');
-                            };
-                        }
-                    });
+                    // // 获取bid
+                    // var bid = $(this).attr("bid");
+                    // //执行ajax
+                    // $.ajax({
+                    //     url:'brand'+ '/' + bid,
+                    //     type:"get",
+                    //     dataType:"json",
+                    //     success:function (data){
+                    //         if(data.length!=0){
+                    //             var nRow = $(this).parents('tr')[0];
+                    //             oTable.fnDeleteRow(nRow);
+                    //         }else{
+                    //             alert('删除失败');
+                    //         };
+                    //     }
+                    // });
 
                 } else {
                     /* No edit in progress - let's start one */

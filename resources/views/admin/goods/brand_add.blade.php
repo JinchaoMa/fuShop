@@ -39,7 +39,7 @@
                         <strong>添加成功！</strong> 你已经成功的添加了一个品牌，在此页面继续添加，或点击左侧品牌列表查看。
                     </div>
                 @endif
-                <form class="form-horizontal adminex-form" method="post" action=" {{ URL('admin/goods/brand/store') }} ">
+                <form class="form-horizontal adminex-form" method="post" action=" {{ URL('updateFile/update') }} " enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     <!-- 友情链接开始 -->
                     <div class="form-group">
