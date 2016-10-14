@@ -18,6 +18,7 @@ class adminController extends Controller
     {
         //
         return view('admin/index/index');
+        //return phpinfo();
     }
 
     /**

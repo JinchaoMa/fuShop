@@ -49,13 +49,20 @@ Route::group(['prefix' => 'admin'], function(){
 
 	/**
 	 * 商品管理
-	 *
-	 * @author [name] <[email address]>
+	 * 
+	 * @author 吴睿楠 <Ryansimver@gmail.com>
 	 */
 	Route::group(['prefix' => 'goods'],function(){
 
 		// 品牌管理
 		Route::get('brand', 'admin\goods\brandController@index');
+			//增加品牌页面跳转
+		Route::get('brand/add', function(){
+			return view('admin/goods/brand_add');
+		});
+		//Route::post('brand/store', 'admin\goods\brandController@store');
+			//删除品牌
+		Route::get('brand/{bid}', 'admin\goods\brandController@destroy');
 
 		// 商品状态
 		Route::get('status', 'admin\goods\statusController@index');
@@ -153,4 +160,18 @@ Route::group(['prefix' => 'admin'], function(){
 	});
 
 
+});
+
+/**
+ * 图片上传及处理
+ *
+ * @return 
+ */
+Route::group(['prefix' => 'updateFile'], function(){
+
+	//图片上传
+	Route::post('update', 'imageController@update');
+
+	//图片处理
+	Route::post('deal','imageController@deal');
 });
